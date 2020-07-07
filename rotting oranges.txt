@@ -1,0 +1,43 @@
+class Solution {
+    public int orangesRotting(int[][] grid) {
+        Set<String> fresh = new HashSet<String>();
+        Set<String> rotten = new HashSet<String>();
+        for(int i=0;i<grid.length;i++){
+            for(int j=0;j<grid.length;j++){
+                if(grid[i][j]==1)
+                    fresh.add(""+i+j);
+                else if(grid[i][j]==2)
+                    rotten.add(""+i+j);
+                    
+            }
+        }
+        if(fresh.size()>0 && rotten.size()==0)
+            return -1;
+        
+        int[][] direction={{0,1},{1,0},{-1,0},{0,-1}};
+        int min=0;
+        while(fresh.size()>0){
+            Set<String> infected=new HashSet<String>() ;
+            for(String s:rotten){
+              int i=s.charAt(0)-'0';  
+              int j=s.charAt(1)-'0';
+                for(int[] dir:direction){
+                        int nexti= i+dir[0];
+                        int nextj= j+dir[1];
+                        if(fresh.contains(""+nexti+nextj)){
+                            fresh.remove(""+nexti+nextj);
+                            infected.add(""+nexti+nextj);
+                        }
+                }
+            }
+            if(infected.size()==0)
+                return -1;
+        
+            rotten=infected;
+            min++;
+    }
+        
+        return min;
+        
+    }
+}
