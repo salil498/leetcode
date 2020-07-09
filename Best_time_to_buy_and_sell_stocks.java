@@ -5,6 +5,6 @@ class Solution {
             maxCur = Math.max(0, maxCur += prices[i] - prices[i-1]);
             maxSoFar = Math.max(maxCur, maxSoFar);
         }
-        return maxSoFar;
+         return maxSoFar;
     }
 }
