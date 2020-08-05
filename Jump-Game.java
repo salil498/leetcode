@@ -18,3 +18,15 @@ class Solution {
         else return false;
     }
 }
+
+
+///////////////////Constant space solution//////////////////////
+class Solution {
+    public boolean canJump(int[] nums) {
+        int reach=0;
+        for(int i=0;i<nums.length && i<=reach;i++)
+            reach=Math.max(i+nums[i],reach);
+        if(reach>=nums.length-1) return true;
+        else return false;
+    }
+}
