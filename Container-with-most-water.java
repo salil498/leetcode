@@ -16,3 +16,23 @@ class Solution {
         return max_area;
     }
 }
+//////////////O(N) solution using two pointer////////////////
+class Solution {
+    public int maxArea(int[] height) {
+        if(height.length==0)
+            return 0;
+        int max_area=Integer.MIN_VALUE;
+        int x=0;
+        int y=height.length-1;
+        while(x<y){
+            int min=Math.min(height[x],height[y]);
+            int area=min*(y-x);
+            max_area=Math.max(area,max_area);
+            if(height[x]<height[y])
+                x++;
+            else y--;
+        }
+        return max_area;
+        
+    }
+}
