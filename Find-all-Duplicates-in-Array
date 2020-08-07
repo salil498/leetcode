@@ -14,3 +14,18 @@ class Solution {
         return li;
     }
 }
+//////////O(1) space and O(N) time solution/////////
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> li=new ArrayList();
+        for(int i=0;i<nums.length;i++){
+                int index=Math.abs(nums[i])-1;
+            if(nums[index]<0)
+                li.add(index+1);
+            nums[index]=-nums[index];
+           }
+        
+        
+        return li;
+    }
+}
