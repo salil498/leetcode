@@ -15,7 +15,6 @@ class Solution {
         
             
     }
-        
         return final_count+count*(count+1)/2;
     }
 }
