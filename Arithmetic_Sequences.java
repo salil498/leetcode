@@ -12,7 +12,6 @@ class Solution {
             count=0;
             flag=1;
         }
-        
             
     }
         return final_count+count*(count+1)/2;
